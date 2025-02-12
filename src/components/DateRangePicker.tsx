@@ -1,7 +1,7 @@
 // components/DatePicker.tsx
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import { countIntersections } from "@/lib/dateUtils";
