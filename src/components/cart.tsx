@@ -29,7 +29,7 @@ export default function Cart() {
             >
               {bookedRooms.length > 0 ? (
                 bookedRooms.map((room, index) => {
-                  return <RoomCard key={room.id} room={room} cart />;
+                  return <RoomCard key={`cart_${index}`} room={room} cart />;
                 })
               ) : (
                 <p>No Booking</p>
