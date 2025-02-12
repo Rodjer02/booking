@@ -12,7 +12,7 @@ import { useBookingStore } from "@/store/useBookingStore";
 import RoomCard from "./RoomCard";
 
 export default function Cart() {
-  const { bookedRooms, bookRoom, cancelBooking } = useBookingStore();
+  const { bookedRooms } = useBookingStore();
 
   return (
     <Sheet>

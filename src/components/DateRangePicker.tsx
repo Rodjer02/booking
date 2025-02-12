@@ -3,7 +3,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
-import { Button } from "@/components/ui/button";
 import { format } from "date-fns";
 import { countIntersections } from "@/lib/dateUtils";
 import { Room, rooms } from "@/data/mockData";
