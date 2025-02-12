@@ -8,7 +8,12 @@ interface RoomListProps {
 
 export default function RoomList({ rooms }: RoomListProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+    <div
+      className="grid grid-cols-1 md:grid-cols-3 gap-4"
+      style={{
+        height: "max-content",
+      }}
+    >
       {rooms.map((room) => (
         <RoomCard key={room.id} room={room} />
       ))}

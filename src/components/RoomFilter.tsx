@@ -61,16 +61,30 @@ export default function RoomFilter({ onFilter }: RoomFilterProps) {
             <SelectTrigger>
               <SelectValue placeholder="Select a view" />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="Sea">Sea View</SelectItem>
-              <SelectItem value="Garden">Garden View</SelectItem>
-              <SelectItem value="Mountain">Mountain View</SelectItem>
+            <SelectContent className="bg-white shadow-md rounded-lg">
+              <SelectItem className="hover:bg-gray-100 px-4 py-2" value="Sea">
+                Sea View
+              </SelectItem>
+              <SelectItem
+                className="hover:bg-gray-100 px-4 py-2"
+                value="Garden"
+              >
+                Garden View
+              </SelectItem>
+              <SelectItem
+                className="hover:bg-gray-100 px-4 py-2"
+                value="Mountain"
+              >
+                Mountain View
+              </SelectItem>
             </SelectContent>
           </Select>
         </div>
 
-        {/* Filter Button */}
-        <Button className="mt-4" onClick={handleFilter}>
+        <Button
+          className="bg-black text-white hover:bg-gray-500"
+          onClick={handleFilter}
+        >
           Apply Filters
         </Button>
       </CardContent>

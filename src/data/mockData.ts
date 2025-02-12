@@ -5,6 +5,7 @@ export interface Room {
     price: number;
     view: string;
     bookings: { startDate: string; endDate: string }[];
+    img: string;
   }
   
 export const rooms: Room[] = [
@@ -15,6 +16,7 @@ export const rooms: Room[] = [
     price: 150,
     view: "Sea",
     bookings: [{ startDate: "2025-02-10", endDate: "2025-02-12" }],
+    img: "https://homeinteriors.com.ua/wp-content/uploads/2020/09/dizayn-gostevoy-komnaty-v-kvartire.jpg"
   },
   {
     id: 2,
@@ -23,6 +25,7 @@ export const rooms: Room[] = [
     price: 100,
     view: "Garden",
     bookings: [{ startDate: "2025-02-15", endDate: "2025-02-18" }],
+    img: 'https://cdn2.divan.ru/img/v1/RVAiZr4a9uVUKBHOxYhQ5Aw2UNxkEc8uCiSnn9X7MtU/rs:fit:1920:1440:0:0/g:ce:0:0/bg:ffffff/q:85/czM6Ly9kaXZhbi9ja2VkaXRvci93aWtpLWFydGljbGUvMjU3MC82M2M1NjExZWM3NGIwLnBuZw.jpg'
   },
   {
     id: 3,
@@ -31,6 +34,7 @@ export const rooms: Room[] = [
     price: 200,
     view: "Mountain",
     bookings: [{ startDate: "2025-02-20", endDate: "2025-02-22" }],
+    img: "https://homeinteriors.com.ua/wp-content/uploads/2023/02/dizayn-gostevoy-komnaty-v-bezhevykh-tonakh.jpg"
   },
   {
     id: 4,
@@ -39,6 +43,7 @@ export const rooms: Room[] = [
     price: 180,
     view: "Sea",
     bookings: [{ startDate: "2025-03-01", endDate: "2025-03-03" }],
+    img: "https://design.pibig.info/uploads/posts/2023-03/1680275893_design-pibig-info-p-gostinaya-komnata-dizain-interera-dizain-i-31.jpg"
   },
   {
     id: 5,
@@ -47,6 +52,7 @@ export const rooms: Room[] = [
     price: 90,
     view: "Garden",
     bookings: [{ startDate: "2025-03-05", endDate: "2025-03-08" }],
+    img: "https://homeinteriors.com.ua/wp-content/uploads/2020/09/dizayn-gostevoy-komnaty-v-kvartire.jpg"
   },
   {
     id: 6,
@@ -55,6 +61,7 @@ export const rooms: Room[] = [
     price: 250,
     view: "Mountain",
     bookings: [{ startDate: "2025-03-10", endDate: "2025-03-15" }],
+    img: 'https://cdn2.divan.ru/img/v1/RVAiZr4a9uVUKBHOxYhQ5Aw2UNxkEc8uCiSnn9X7MtU/rs:fit:1920:1440:0:0/g:ce:0:0/bg:ffffff/q:85/czM6Ly9kaXZhbi9ja2VkaXRvci93aWtpLWFydGljbGUvMjU3MC82M2M1NjExZWM3NGIwLnBuZw.jpg'
   },
   {
     id: 7,
@@ -63,6 +70,7 @@ export const rooms: Room[] = [
     price: 220,
     view: "Sea",
     bookings: [{ startDate: "2025-02-25", endDate: "2025-02-28" }],
+    img: "https://homeinteriors.com.ua/wp-content/uploads/2020/09/dizayn-gostevoy-komnaty-v-kvartire.jpg"
   },
   {
     id: 8,
@@ -71,6 +79,7 @@ export const rooms: Room[] = [
     price: 85,
     view: "Garden",
     bookings: [{ startDate: "2025-03-02", endDate: "2025-03-04" }],
+    img: "https://homeinteriors.com.ua/wp-content/uploads/2023/02/dizayn-gostevoy-komnaty-v-bezhevykh-tonakh.jpg"
   },
   {
     id: 9,
@@ -79,6 +88,7 @@ export const rooms: Room[] = [
     price: 190,
     view: "Mountain",
     bookings: [{ startDate: "2025-03-10", endDate: "2025-03-12" }],
+    img: 'https://cdn2.divan.ru/img/v1/RVAiZr4a9uVUKBHOxYhQ5Aw2UNxkEc8uCiSnn9X7MtU/rs:fit:1920:1440:0:0/g:ce:0:0/bg:ffffff/q:85/czM6Ly9kaXZhbi9ja2VkaXRvci93aWtpLWFydGljbGUvMjU3MC82M2M1NjExZWM3NGIwLnBuZw.jpg'
   },
   {
     id: 10,
@@ -87,6 +97,7 @@ export const rooms: Room[] = [
     price: 160,
     view: "Sea",
     bookings: [{ startDate: "2025-03-14", endDate: "2025-03-16" }],
+    img: "https://homeinteriors.com.ua/wp-content/uploads/2020/09/dizayn-gostevoy-komnaty-v-kvartire.jpg"
   },
   {
     id: 11,
@@ -95,6 +106,7 @@ export const rooms: Room[] = [
     price: 210,
     view: "Garden",
     bookings: [{ startDate: "2025-03-18", endDate: "2025-03-21" }],
+    img: "https://homeinteriors.com.ua/wp-content/uploads/2023/02/dizayn-gostevoy-komnaty-v-bezhevykh-tonakh.jpg"
   },
   {
     id: 12,
@@ -103,6 +115,7 @@ export const rooms: Room[] = [
     price: 270,
     view: "Mountain",
     bookings: [{ startDate: "2025-03-25", endDate: "2025-03-28" }],
+    img: 'https://cdn2.divan.ru/img/v1/RVAiZr4a9uVUKBHOxYhQ5Aw2UNxkEc8uCiSnn9X7MtU/rs:fit:1920:1440:0:0/g:ce:0:0/bg:ffffff/q:85/czM6Ly9kaXZhbi9ja2VkaXRvci93aWtpLWFydGljbGUvMjU3MC82M2M1NjExZWM3NGIwLnBuZw.jpg'
   },
   {
     id: 13,
@@ -111,6 +124,7 @@ export const rooms: Room[] = [
     price: 230,
     view: "Sea",
     bookings: [{ startDate: "2025-04-01", endDate: "2025-04-05" }],
+    img: "https://homeinteriors.com.ua/wp-content/uploads/2020/09/dizayn-gostevoy-komnaty-v-kvartire.jpg"
   },
   {
     id: 14,
@@ -119,6 +133,7 @@ export const rooms: Room[] = [
     price: 95,
     view: "Garden",
     bookings: [{ startDate: "2025-04-10", endDate: "2025-04-12" }],
+    img: "https://homeinteriors.com.ua/wp-content/uploads/2023/02/dizayn-gostevoy-komnaty-v-bezhevykh-tonakh.jpg"
   },
   {
     id: 15,
@@ -127,6 +142,7 @@ export const rooms: Room[] = [
     price: 260,
     view: "Mountain",
     bookings: [{ startDate: "2025-04-15", endDate: "2025-04-18" }],
+    img: 'https://cdn2.divan.ru/img/v1/RVAiZr4a9uVUKBHOxYhQ5Aw2UNxkEc8uCiSnn9X7MtU/rs:fit:1920:1440:0:0/g:ce:0:0/bg:ffffff/q:85/czM6Ly9kaXZhbi9ja2VkaXRvci93aWtpLWFydGljbGUvMjU3MC82M2M1NjExZWM3NGIwLnBuZw.jpg'
   },
   ];
   

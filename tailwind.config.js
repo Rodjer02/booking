@@ -8,6 +8,7 @@ const config = {
     extend: {},
   },
   plugins: [],
+  safelist: ["bg-red-500", "hover:bg-red-600", "text-white"],
 };
 
 export default config;

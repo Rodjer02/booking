@@ -1,62 +1,95 @@
 // components/DatePicker.tsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
 import { format } from "date-fns";
 import { countIntersections } from "@/lib/dateUtils";
-import { Room } from "@/data/mockData";
-
-type Booking = { startDate: string; endDate: string };
+import { Room, rooms } from "@/data/mockData";
+import { DateRange } from "react-day-picker";
 
 interface DatePickerProps {
   bookings: Room[];
-  onDateSelect: (dates: { startDate: string; endDate: string }) => void;
+  onDateSelect: (rooms: Room[]) => void;
+}
+interface SelectedDateRange {
+  startDate: string;
+  endDate: string;
 }
 
 export default function DatePicker({
   bookings,
   onDateSelect,
 }: DatePickerProps) {
-  const [startDate, setStartDate] = useState<Date | undefined>(undefined);
-  const [endDate, setEndDate] = useState<Date | undefined>(undefined);
+  const [range, setRange] = useState<DateRange>({
+    from: undefined,
+    to: undefined,
+  });
 
-  const handleCheckAvailability = () => {
-    if (!startDate || !endDate) return;
+  const [selectedRange, setSelectedRange] = useState<SelectedDateRange | null>(
+    () => {
+      return range.from && range.to
+        ? {
+            startDate: format(range.from, "yyyy-MM-dd"),
+            endDate: format(range.to, "yyyy-MM-dd"),
+          }
+        : null;
+    }
+  );
 
-    const selectedRange = {
-      startDate: format(startDate, "yyyy-MM-dd"),
-      endDate: format(endDate, "yyyy-MM-dd"),
-    };
-
-    const intersections = countIntersections(bookings, selectedRange);
-    console.log(intersections);
-    onDateSelect(selectedRange);
+  const handleSelect = (selectedRange: DateRange | undefined) => {
+    if (selectedRange) {
+      setRange({
+        from: selectedRange.from ?? undefined,
+        to: selectedRange.to ?? undefined,
+      });
+    }
   };
 
   useEffect(() => {
-    console.log(startDate);
-  }, [startDate]);
+    if (range.from && range.to) {
+      setSelectedRange({
+        startDate: format(range.from, "yyyy-MM-dd"),
+        endDate: format(range.to, "yyyy-MM-dd"),
+      });
+    } else {
+      setSelectedRange(null);
+    }
+  }, [range]);
+
+  useEffect(() => {
+    if (!selectedRange) {
+      onDateSelect(bookings);
+      return;
+    }
+    const intersections = countIntersections(rooms, selectedRange);
+    onDateSelect(intersections);
+  }, [selectedRange]);
 
   return (
     <div className="flex flex-col gap-4 p-4 border rounded-xl">
-      <h2 className="text-xl font-semibold">Выберите диапазон дат:</h2>
-      <div className="flex gap-4">
-        <Calendar
-          selected={startDate}
-          onSelect={setStartDate}
-          className="rounded-xl"
-        />
-        <Calendar
-          selected={endDate}
-          onSelect={setEndDate}
-          className="rounded-xl"
-        />
-      </div>
-      <Button onClick={handleCheckAvailability} className="mt-4">
-        Проверить доступность
-      </Button>
+      <h2 className="text-xl font-semibold">Select a date range:</h2>
+      <Calendar
+        mode="range"
+        selected={range}
+        onSelect={handleSelect}
+        numberOfMonths={1}
+        className="rounded-md border shadow"
+        modifiers={{
+          selectedStart: range?.from ? [range.from] : [],
+          selectedEnd: range?.to ? [range.to] : [],
+          inRange:
+            range?.from && range?.to
+              ? { after: range.from, before: range.to }
+              : [],
+        }}
+        modifiersClassNames={{
+          selectedStart: "bg-black text-white",
+          selectedEnd: "bg-black text-white",
+          inRange: "bg-gray-300 text-black",
+        }}
+      />
     </div>
   );
 }

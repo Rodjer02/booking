@@ -1,16 +1,13 @@
 "use client";
+import Cart from "@/components/cart";
 import DatePicker from "@/components/DateRangePicker";
 import RoomFilter from "@/components/RoomFilter";
 import RoomList from "@/components/RoomList";
-import TestComponent from "@/components/test";
-import { rooms } from "@/data/mockData";
-import { countIntersections } from "@/lib/dateUtils";
+import { Room, rooms } from "@/data/mockData";
 import { useState } from "react";
 
-type Booking = { startDate: string; endDate: string } | undefined;
 export default function BookingApp() {
-  const [filteredRooms, setFilteredRooms] = useState(rooms);
-  const [dateRange, setDateRange] = useState<Booking>();
+  const [filteredRooms, setFilteredRooms] = useState<Room[]>(rooms);
 
   const handleFilterChange = (filters: {
     bedrooms: number;
@@ -28,16 +25,22 @@ export default function BookingApp() {
   };
 
   return (
-    <div className="p-8 space-y-4">
-      <TestComponent />
+    <div className="space-y-4 w-full h-screen">
+      <div className="p-8 flex justify-between items-center shadow-lg">
+        <h1 className="text-2xl font-bold mb-4">Room Booking</h1>
+        <Cart />
+      </div>
+      <div className="p-8 flex justify-between items-top">
+        <div className="flex flex-col gap-4 ">
+          <DatePicker
+            bookings={filteredRooms}
+            onDateSelect={(val: Room[]) => setFilteredRooms(val)}
+          />
+          <RoomFilter onFilter={handleFilterChange} />
+        </div>
 
-      <h1 className="text-2xl font-bold mb-4">Room Booking System</h1>
-      <DatePicker
-        bookings={filteredRooms}
-        onDateSelect={(val: Booking) => setDateRange(val)}
-      />
-      <RoomFilter onFilter={handleFilterChange} />
-      <RoomList rooms={filteredRooms} />
+        <RoomList rooms={filteredRooms} />
+      </div>
     </div>
   );
 }
